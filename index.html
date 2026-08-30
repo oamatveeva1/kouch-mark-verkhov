@@ -76,6 +76,8 @@
   .btn-ghost:hover{background:rgba(255,255,255,0.16);box-shadow:0 20px 40px -20px rgba(255,255,255,.15)}
   .btn-lg{font-size:16px;padding:20px 46px}
   .btn-sm{padding:12px 26px;font-size:14px}
+  .btn::after{content:"";position:absolute;top:0;height:100%;left:-70%;width:55%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(252,187,0,.6),transparent);animation:btnShimmer 3.6s ease-in-out infinite}
+  @keyframes btnShimmer{0%{left:-70%}55%,100%{left:125%}}
   @media(max-width:640px){.btn-lg{font-size:15px}}
 
   /* ---------- Reveal ---------- */
