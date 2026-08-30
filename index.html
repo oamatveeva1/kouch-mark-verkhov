@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='0' fill='%23000000'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='600' fill='%23fcbb00' text-anchor='middle'>М</text></svg>">
+<title>Марк Верхов — Психолог и стратегический коуч</title>
+<meta name="description" content="Психология и коучинг для тех, кто устал от тревоги и выгорания. Без воды. Только работающие инструменты для реальных изменений. Бесплатная 20-минутная сессия прорыва.">
+<meta property="og:title" content="Верните себе энергию, ясность и контроль над своей жизнью">
+<meta property="og:description" content="Психология и коучинг для тех, кто готов перестать выживать, чтобы начать побеждать.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#000000;
+    --ink:#FFFFFF;
+    --ink-soft:#B9B9BE;
+    --ink-dim:#6E6E75;
+    --line:rgba(255,255,255,0.1);
+    --gold:#fcbb00;
+    --card:rgba(255,255,255,0.03);
+    --card-border:rgba(255,255,255,0.08);
+    --card-hover:rgba(255,255,255,0.05);
+    --radius:26px;
+    --radius-lg:34px;
+    --sans:'Manrope',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+  }
+  ::selection{background:var(--gold);color:#000}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  }
+
+  .wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 20px}}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .5s cubic-bezier(.22,1,.36,1),box-shadow .5s,backdrop-filter .5s,border-color .5s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(0,0,0,0.72);backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo-mark{width:34px;height:34px;background:var(--bg);display:grid;place-items:center;color:var(--gold);font-weight:800;font-size:20px;line-height:1}
+  .logo-name{font-weight:800;font-size:18px;letter-spacing:-.3px}
+  .logo-sub{display:block;font-family:var(--sans);font-weight:500;font-size:10px;color:var(--ink-dim);letter-spacing:2.4px;text-transform:uppercase}
+  .nav-links{display:flex;gap:34px;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:15px;font-weight:500;position:relative;transition:color .3s}
+  .nav-links a::after{content:"";position:absolute;left:50%;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .4s cubic-bezier(.34,1.56,.64,1),left .4s cubic-bezier(.34,1.56,.64,1);border-radius:2px}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:hover::after{width:100%;left:0}
+  .nav-cta{display:flex;gap:16px;align-items:center}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--ink);font-size:26px}
+  @media(max-width:980px){.nav-links{display:none}.nav-cta .btn-sm{display:none}.hamburger{display:block}}
+  .mobile-menu{position:fixed;top:0;right:0;bottom:0;width:min(340px,86vw);background:rgba(10,10,11,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);z-index:200;padding:110px 34px;transform:translateX(100%);transition:transform .5s cubic-bezier(.22,1,.36,1);border-left:1px solid var(--line)}
+  .mobile-menu.open{transform:translateX(0)}
+  .mobile-menu a{display:block;padding:17px 0;color:var(--ink);text-decoration:none;font-size:19px;font-weight:600;border-bottom:1px solid var(--line)}
+  .menu-close{position:absolute;top:28px;right:30px;background:none;border:none;color:var(--ink);font-size:30px;cursor:pointer}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:500;font-size:15px;color:#000;padding:18px 40px;border-radius:100px;text-decoration:none;background:#fff;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),background .3s,box-shadow .3s;letter-spacing:.2px;text-align:center;line-height:1.3}
+  .btn:hover{transform:translateY(-2px);background:#f2f2f2;box-shadow:0 20px 40px -20px rgba(255,255,255,.25)}
+  .btn .btn-sub{display:block;font-size:12px;font-weight:500;opacity:.6}
+  .btn-ghost{background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .btn-ghost:hover{background:rgba(255,255,255,0.16);box-shadow:0 20px 40px -20px rgba(255,255,255,.15)}
+  .btn-lg{font-size:16px;padding:20px 46px}
+  .btn-sm{padding:12px 26px;font-size:14px}
+  @media(max-width:640px){.btn-lg{font-size:15px}}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+  .reveal[data-delay="1"]{transition-delay:.12s}
+  .reveal[data-delay="2"]{transition-delay:.24s}
+  .reveal[data-delay="3"]{transition-delay:.36s}
+  .reveal[data-delay="4"]{transition-delay:.48s}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Section base ---------- */
+  .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .h1{font-weight:500;font-size:clamp(36px,6.4vw,80px);line-height:1.02;letter-spacing:-0.045em;text-wrap:balance}
+  .h2{font-weight:500;font-size:clamp(30px,4.6vw,54px);line-height:1.05;letter-spacing:-0.04em;text-wrap:balance;margin-bottom:18px}
+  .lead{font-size:clamp(16px,1.7vw,19px);color:var(--ink-soft);max-width:680px;font-weight:400}
+  .gold{color:var(--gold)}
+
+  .sec{padding:140px 0}
+  .sec-center{text-align:center}
+  .sec-center .lead{margin:0 auto 0}
+  .sec-header-center{text-align:center;max-width:820px;margin:0 auto}
+  .sec-header-center .lead{margin:0 auto}
+
+  /* Light sections (alternate) */
+  .sec-light{
+    background:#ffffff;
+    color:var(--ink);
+    --bg:#ffffff;
+    --gold:#8a6d1a;
+    --ink:#000000;
+    --ink-soft:#54545c;
+    --ink-dim:#8a8a92;
+    --line:rgba(0,0,0,0.1);
+    --card:rgba(0,0,0,0.02);
+    --card-border:rgba(0,0,0,0.08);
+    --card-hover:rgba(0,0,0,0.04);
+  }
+  .sec-light h1,.sec-light h2,.sec-light h3,.sec-light .lead,.sec-light .hero-sub{color:var(--ink)}
+  .sec-light .glass:hover{border-color:rgba(0,0,0,0.16)}
+  .sec-light .btn{background:#000;color:#fff;border:none}
+  .sec-light .btn:hover{background:#1c1c1e;box-shadow:0 20px 40px -20px rgba(0,0,0,.3)}
+  .sec-light .btn-ghost{background:rgba(0,0,0,0.06);color:#000;border:1px solid rgba(0,0,0,0.14)}
+  .sec-light .btn-ghost:hover{background:rgba(0,0,0,0.1)}
+  .sec-light .pain-card:hover,.sec-light .why-card:hover{background:#f7f7f8}
+  .sec-light .faq-item.open{background:#f7f7f8}
+  .sec-light .quote p{color:var(--ink)}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.15) 100%)}
+  .hero-content{width:100%;position:relative;z-index:2;padding:180px 0 90px}
+  .hero-content .wrap{max-width:1280px}
+  .hero .h1{max-width:12em;margin-bottom:30px}
+  .hero .hero-accent{display:block;color:var(--gold)}
+  .hero-sub{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:640px;margin-bottom:40px;font-weight:400}
+  .hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .hero-micro{width:100%;font-size:16px;color:var(--ink-soft);line-height:1.55}
+  .hero-micro a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+  .hero-telegram{color:var(--ink);font-size:17px}
+  .hero .eyebrow{font-size:16px}
+  @media(max-width:760px){.hero .h1{max-width:100%}.hero-content{padding-top:150px}}
+
+  /* ---------- Cards ---------- */
+  .glass{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);transition:background .4s,border-color .4s,transform .4s}
+  .glass:hover{background:var(--card-hover);border-color:rgba(255,255,255,0.15)}
+
+  /* ---------- Pain ---------- */
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--line)}
+  .pain-card{padding:38px 34px;border-radius:0;border:none;background:var(--bg);display:flex;gap:24px;align-items:flex-start;transition:background .4s}
+  .pain-card:hover{background:#0a0a0b}
+  .pain-icon{flex-shrink:0;width:54px;height:54px;border-radius:14px;background:rgba(252,187,0,0.12);border:1px solid rgba(252,187,0,0.35);color:var(--gold);display:grid;place-items:center;transition:background .4s,color .4s}
+  .pain-icon svg{width:28px;height:28px}
+  .pain-card:hover .pain-icon{background:var(--gold);color:#000}
+  .pain-body h3{font-weight:600;font-size:20px;letter-spacing:-.02em;margin-bottom:10px}
+  .pain-body p{color:var(--ink);font-size:17px;line-height:1.55}
+  @media(max-width:820px){.pain-grid{grid-template-columns:1fr}}
+  .pain-cta{margin-top:70px;text-align:center}
+  .pain-pivot{font-size:clamp(22px,3vw,32px);font-weight:400;letter-spacing:-.03em;line-height:1.3;color:var(--ink);max-width:760px;margin:0 auto 36px;text-wrap:balance}
+
+  /* ---------- About ---------- */
+  .about{background:#0a0a0b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:stretch}
+  .about-img{border-radius:var(--radius-lg);overflow:hidden;position:relative;min-height:560px}
+  .about-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .about-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4),transparent 40%)}
+  .about-body{display:flex;flex-direction:column;justify-content:center}
+  .about-body p{color:var(--ink-soft);margin-bottom:18px}
+  .principles{margin-top:36px;display:grid;gap:26px}
+  .principle{display:flex;gap:20px}
+  .p-num{width:46px;height:46px;flex-shrink:0;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-size:16px;font-weight:600}
+  .principle h4{font-weight:600;font-size:18px;letter-spacing:-.01em;margin-bottom:5px}
+  .principle p{font-size:14.5px;margin:0}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-img{min-height:0;height:420px}.about-img img{position:static}}
+  .quote{max-width:900px;margin:90px auto 0;padding:60px 50px;text-align:center}
+  .quote p{font-weight:300;font-size:clamp(24px,3.4vw,40px);letter-spacing:-.03em;line-height:1.25;color:var(--ink)}
+  @media(max-width:640px){.quote{padding:42px 26px}}
+
+  /* ---------- Steps ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+  .step{padding:44px 36px;display:flex;flex-direction:column}
+  .step-num{font-weight:200;font-size:60px;line-height:1;color:var(--gold);margin-bottom:30px;letter-spacing:-.03em}
+  .step-tag{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px}
+  .step h3{font-weight:600;font-size:22px;letter-spacing:-.02em;margin-bottom:14px}
+  .step p{color:var(--ink-soft);font-size:15px;flex:1}
+  .step .step-time{display:block;color:var(--ink);font-weight:500;margin-bottom:14px}
+  @media(max-width:900px){.steps{grid-template-columns:1fr}}
+
+  /* ---------- Pricing ---------- */
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:60px}
+  .price-card{padding:40px 34px;display:flex;flex-direction:column}
+  .price-card h3{font-weight:600;font-size:17px;letter-spacing:-.01em;margin-bottom:6px}
+  .price-card .p-price{margin:16px 0 4px;font-weight:500;font-size:42px;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .price-card .p-price small{font-size:14px;color:var(--ink-dim);font-weight:500}
+  .price-card .p-result{font-size:14.5px;color:var(--ink-soft);margin:18px 0 28px;flex:1}
+  .price-card .p-tag{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+  @media(max-width:1080px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.price-grid{grid-template-columns:1fr}}
+  .price-cta{text-align:center;margin-top:56px}
+
+  /* ---------- Why ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin-top:60px;border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--line)}
+  .why-card{padding:44px 36px;border-radius:0;border:none;background:var(--bg)}
+  .why-card:hover{background:#0a0a0b}
+  .why-num{font-weight:200;font-size:40px;color:var(--gold);margin-bottom:24px;line-height:1}
+  .why-card h3{font-weight:600;font-size:19px;letter-spacing:-.01em;margin-bottom:12px}
+  .why-card p{color:var(--ink-soft);font-size:15px}
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:22px;margin-top:60px}
+  .testi-card{padding:44px 38px;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s,border-color .5s,background .4s}
+  .testi-card:hover{transform:translateY(-8px);border-color:rgba(252,187,0,.45);box-shadow:0 26px 60px rgba(0,0,0,.55)}
+  .testi-card blockquote{font-weight:300;font-size:21px;letter-spacing:-.01em;line-height:1.5;color:var(--ink);margin-bottom:30px}
+  .testi-person{display:flex;align-items:center;gap:16px}
+  .testi-ava{position:relative;flex-shrink:0;width:60px;height:60px;border-radius:50%;padding:3px;background:conic-gradient(from 40deg,rgba(252,187,0,.6),rgba(252,187,0,.15),rgba(252,187,0,.6));transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+  .testi-ava img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid #0d0d0e;filter:grayscale(35%);transition:filter .5s,transform .5s}
+  .testi-card:hover .testi-ava{transform:translateY(-3px) scale(1.06);box-shadow:0 0 0 7px rgba(252,187,0,.14),0 12px 28px rgba(252,187,0,.3)}
+  .testi-card:hover .testi-ava img{filter:grayscale(0);transform:scale(1.05)}
+  .testi-meta strong{display:block;font-weight:600;font-size:15px}
+  .testi-meta .t-req{font-size:13px;color:var(--ink-dim)}
+  @media(max-width:600px){.testi-grid{grid-template-columns:1fr}}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:860px;margin:60px auto 0;display:grid;gap:2px;border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--line)}
+  .faq-item{background:var(--bg)}
+  .faq-item.open{background:#0a0a0b}
+  .faq-q{width:100%;text-align:left;background:none;border:none;color:var(--ink);font-family:var(--sans);font-size:18px;font-weight:500;letter-spacing:-.01em;padding:28px 34px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .faq-q .faq-icon{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);transition:transform .4s;font-size:18px}
+  .faq-item.open .faq-icon{transform:rotate(135deg);background:var(--gold);color:#000;border-color:var(--gold)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1)}
+  .faq-a p{padding:0 34px 30px;color:var(--ink-soft);font-size:15.5px;max-width:720px}
+
+  /* ---------- Form ---------- */
+  .form-section{padding:150px 0;position:relative;overflow:hidden}
+  .form-card{max-width:720px;margin:0 auto;padding:60px 56px;text-align:center}
+  .form-card .lead{margin:0 auto 44px}
+  .form-grid{display:grid;gap:18px;text-align:left}
+  .field label{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px}
+  .field input,.field textarea{width:100%;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font-family:var(--sans);font-size:15px;transition:border-color .3s,background .3s}
+  .field input::placeholder,.field textarea::placeholder{color:var(--ink-dim)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(252,187,0,0.05)}
+  .field textarea{resize:vertical;min-height:88px}
+  .check{display:flex;gap:14px;align-items:flex-start;text-align:left}
+  .check input{margin-top:4px;width:19px;height:19px;accent-color:var(--gold);flex-shrink:0}
+  .check span{font-size:14px;color:var(--ink-soft)}
+  .form-submit{margin-top:6px}
+  .form-micro{margin-top:14px;font-size:13px;color:var(--ink-dim)}
+  @media(max-width:640px){.form-card{padding:44px 24px}}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{padding:150px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--line)}
+  .cta-band .h1{font-size:clamp(40px,8vw,96px);line-height:1.02;margin-bottom:26px}
+  .cta-band .lead{margin:0 auto 40px}
+  @media(max-width:760px){.cta-band .h1{font-size:clamp(32px,9vw,46px)}}
+
+  /* ---------- Scroll to top ---------- */
+  .scroll-top{position:fixed;right:28px;bottom:28px;z-index:90;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#000;border:none;cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .4s,transform .4s,visibility .4s;box-shadow:0 14px 34px rgba(252,187,0,.35)}
+  .scroll-top.show{opacity:1;visibility:visible;transform:none}
+  .scroll-top:hover{background:#ffcf3f;transform:translateY(-3px)}
+  .scroll-top svg{width:20px;height:20px}
+  @media(max-width:640px){.scroll-top{right:16px;bottom:16px;width:46px;height:46px}}
+
+  /* ---------- Form success ---------- */
+  .form-done{font-size:18px;font-weight:500;color:var(--gold);padding:30px 0;line-height:1.6}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line);padding:80px 0 40px}
+  .foot-flex{display:flex;justify-content:space-between;gap:50px;flex-wrap:wrap;padding-bottom:60px}
+  .foot-brand{max-width:340px}
+  .foot-brand p{color:var(--ink-soft);font-size:15px;margin-top:18px}
+  .foot-links{display:flex;gap:90px;flex-wrap:wrap}
+  .foot-col h4{font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:20px}
+  .foot-col a{display:block;color:var(--ink-soft);text-decoration:none;padding:8px 0;transition:color .3s}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:30px;color:var(--ink-dim);font-size:13px;display:flex;flex-direction:column;gap:12px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo-mark">М</span>
+        <span class="logo-text">
+          <span class="logo-name">Марк Верхов</span>
+          <span class="logo-sub">Психолог · Коуч</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#price">С чем работаю</a></li>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#plan">Метод</a></li>
+        <li><a href="#formats">Тарифы</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#form" class="btn btn-sm">Сессия Прорыва</a>
+        <button class="hamburger" id="hamburger" aria-label="Меню">&#8801;</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" id="menuClose" aria-label="Закрыть">&times;</button>
+  <a href="#price">С чем работаю</a>
+  <a href="#about">Обо мне</a>
+  <a href="#plan">Метод</a>
+  <a href="#formats">Тарифы</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="#form">Сессия Прорыва</a>
+</div>
+
+<main>
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop" alt="Горы в тумане на рассвете">
+    </div>
+    <div class="hero-content">
+      <div class="wrap">
+        <span class="eyebrow reveal">Психолог · Стратегический коуч</span>
+        <h1 class="h1 reveal" data-delay="1">
+          Хватит жить на автопилоте.
+          <span class="hero-accent">Верните себе энергию, ясность и полный контроль.</span>
+        </h1>
+        <p class="hero-sub reveal" data-delay="2">Вы не сломаны — вам просто нужна другая стратегия. Я помогаю тем, кто устал от тревоги и выгорания, вернуть энергию и ясность. Без лишних слов, без бесконечных копаний в прошлом. Только простые инструменты, которые работают.</p>
+        <div class="hero-actions reveal" data-delay="3">
+          <a href="#form" class="btn btn-lg">
+            <span>Забронировать Сессию Прорыва</span>
+          </a>
+          <p class="hero-micro">Это бесплатный созвон на 20 минут. На нём мы определим вашу главную точку роста и наметим план действий. Без обязательств. Только польза.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. PRICE OF INACTION ============ -->
+  <section class="sec sec-light" id="price">
+    <div class="wrap">
+      <div class="sec-header-center">
+        <span class="eyebrow reveal">Цена бездействия</span>
+        <h2 class="h2 reveal" data-delay="1">Какую цену вы платите за то, что <span class="gold">ничего не меняете?</span></h2>
+        <p class="lead reveal" data-delay="2">Вы терпите это слишком долго. Признать проблему — это уже половина успеха. Вторая половина — решиться на перемены. Узнаете себя?</p>
+      </div>
+      <div class="pain-grid">
+        <div class="glass pain-card reveal" data-delay="1">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2z"/><path d="M20 11v2"/><rect x="16" y="11" width="2" height="2" rx="0.4" fill="currentColor"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>Выгорание</h3>
+            <p>Вы просыпаетесь уже уставшим. Батарея на нуле, а впереди еще целый день «надо».</p>
+          </div>
+        </div>
+        <div class="glass pain-card reveal" data-delay="2">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>Тревога</h3>
+            <p>Мысли крутятся по кругу, вы ждете подвоха и не можете расслабиться.</p>
+          </div>
+        </div>
+        <div class="glass pain-card reveal" data-delay="3">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>Чужая жизнь</h3>
+            <p>Вы делаете то, что «правильно», но внутри кричит пустота. Вы потеряли связь со своими желаниями.</p>
+          </div>
+        </div>
+        <div class="glass pain-card reveal" data-delay="1">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>Паралич решений</h3>
+            <p>Страх ошибки парализует. Важные перемены откладываются из года в год.</p>
+          </div>
+        </div>
+        <div class="glass pain-card reveal" data-delay="2">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>День сурка</h3>
+            <p>Одни и те же конфликты и тупики. Вы ходите по кругу.</p>
+          </div>
+        </div>
+        <div class="glass pain-card reveal" data-delay="3">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="pain-body">
+            <h3>Потерян смысл</h3>
+            <p>Вы делаете всё «правильно», но не чувствуете радости и направления.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pain-cta reveal">
+        <p class="pain-pivot">Хватит это терпеть. Боль перемен меньше, чем боль сожаления.</p>
+        <a href="#form" class="btn btn-lg">Я готов изменить свою жизнь</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ABOUT ============ -->
+  <section class="sec about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-img reveal">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Марк Верхов">
+        </div>
+        <div class="about-body reveal" data-delay="1">
+          <span class="eyebrow">Ваш проводник к переменам</span>
+          <h2 class="h2">Я здесь не для того, чтобы просто «выслушать» вас. Я здесь, чтобы дать вам инструменты для прорыва.</h2>
+          <p>Меня зовут Марк Верхов. Я объединяю глубокую психологию и стратегический коучинг. Почему это важно? Потому что копаться в детских травмах без плана действий — это бесконечный процесс. А ставить цели, когда внутри выгорание, — это путь к провалу.</p>
+          <p>Мы сделаем и то, и другое. Мы найдем корень того, что вас тормозит, и сразу же построим стратегию движения вперед.</p>
+          <div class="principles">
+            <div class="principle reveal" data-delay="1">
+              <div class="p-num">01</div>
+              <div>
+                <h4>Радикальная честность</h4>
+                <p>Я не буду вас жалеть или поучать. Я задам те вопросы, которые вскроют правду и запустят изменения.</p>
+              </div>
+            </div>
+            <div class="principle reveal" data-delay="2">
+              <div class="p-num">02</div>
+              <div>
+                <h4>Фокус на решениях</h4>
+                <p>Мы не застреваем в проблеме. Мы ищем выход, ресурсы и создаем новый сценарий.</p>
+              </div>
+            </div>
+            <div class="principle reveal" data-delay="3">
+              <div class="p-num">03</div>
+              <div>
+                <h4>Гарантия безопасности</h4>
+                <p>Пространство полной конфиденциальности. Здесь можно быть уязвимым. Я приму вас любым.</p>
+              </div>
+            </div>
+            <div class="principle reveal" data-delay="4">
+              <div class="p-num">04</div>
+              <div>
+                <h4>Профессионализм высшего уровня</h4>
+                <p>Базовое психологическое образование, сертификат ICF, 9 лет практики и регулярная супервизия.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="glass quote reveal">
+        <p>«Единственная невозможная поездка — это та, которую вы никогда не начинаете. Ваше будущее создается тем, что вы делаете сегодня, а не завтра».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. PLAN ============ -->
+  <section class="sec sec-light" id="plan">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow reveal">План вашего прорыва</span>
+        <h2 class="h2 reveal" data-delay="1">3 шага к вашей новой реальности</h2>
+      </div>
+      <div class="steps">
+        <div class="glass step reveal" data-delay="1">
+          <div class="step-num">01</div>
+          <span class="step-tag">Шаг 1</span>
+          <h3>Ясность</h3>
+          <p class="step-time">Диагностический созвон, 20 минут</p>
+          <p>Вы оставляете заявку. Мы созваниваемся. Вы говорите, что болит. Я слушаю, задаю точные вопросы и сразу показываю ваши «слепые зоны». Мы решаем, подходим ли мы друг другу. Если нет — я честно направлю вас к тому, кто решит вашу задачу.</p>
+        </div>
+        <div class="glass step reveal" data-delay="2">
+          <div class="step-num">02</div>
+          <span class="step-tag">Шаг 2</span>
+          <h3>Стратегия и действия</h3>
+          <p class="step-time">Сессии по 50–60 минут</p>
+          <p>Онлайн или очно в Москве. Мы взламываем ограничивающие убеждения, снимаем эмоциональные блоки и создаем пошаговый план. Вы получаете практики, чтобы менять состояние и поведение уже между сессиями.</p>
+        </div>
+        <div class="glass step reveal" data-delay="3">
+          <div class="step-num">03</div>
+          <span class="step-tag">Шаг 3</span>
+          <h3>Мастерство и свобода</h3>
+          <p class="step-time">Самостоятельность</p>
+          <p>Моя цель — сделать так, чтобы я стал вам не нужен. Когда вы обретете внутреннюю опору и научитесь сами регулировать состояние, мы завершим работу. Вы станете автором своей жизни.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. PRICING ============ -->
+  <section class="sec" id="formats" style="background:#0a0a0b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow reveal">Инвестиция в ваше будущее</span>
+        <h2 class="h2 reveal" data-delay="1">Выберите свой уровень трансформации</h2>
+      </div>
+      <div class="price-grid">
+        <div class="glass price-card reveal" data-delay="1">
+          <span class="p-tag">Знакомство</span>
+          <h3>Сессия Прорыва</h3>
+          <div class="p-price">0 ₽<small> / 1000 ₽</small></div>
+          <p class="p-result">Абсолютная ясность вашего состояния, формулировка главного запроса и понимание, как мы будем работать. 20 минут, онлайн.</p>
+          <a href="#form" class="btn btn-sm">Записаться</a>
+        </div>
+        <div class="glass price-card reveal" data-delay="2">
+          <span class="p-tag">Разгрузка</span>
+          <h3>Психологическая разгрузка</h3>
+          <div class="p-price">7 000 ₽<small> / сессия</small></div>
+          <p class="p-result">Снятие острой тревоги, работа с выгоранием, обидами и кризисами. Возвращение эмоционального баланса. 50 минут.</p>
+          <a href="#form" class="btn btn-sm">Записаться</a>
+        </div>
+        <div class="glass price-card reveal" data-delay="3">
+          <span class="p-tag">Достижения</span>
+          <h3>Коучинг достижений</h3>
+          <div class="p-price">12 000 ₽<small> / сессия</small></div>
+          <p class="p-result">Для тех, кто в ресурсе, но застрял. Нестандартные решения, жесткие решения, стратегия на 6–12 месяцев. 60 минут.</p>
+          <a href="#form" class="btn btn-sm">Записаться</a>
+        </div>
+        <div class="glass price-card reveal" data-delay="4">
+          <span class="p-tag">Глубокая работа</span>
+          <h3>Полная трансформация</h3>
+          <div class="p-price">60 000 ₽<small> / 5 встреч</small></div>
+          <p class="p-result">Глубинная перепрошивка сценариев. Новый фундамент вашей личности, отношений и карьеры. 5 или 10 встреч.</p>
+          <a href="#form" class="btn btn-sm">Записаться</a>
+        </div>
+      </div>
+      <div class="price-cta reveal">
+        <a href="#form" class="btn btn-lg">Забронировать Сессию Прорыва</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. WHY ============ -->
+  <section class="sec sec-light" id="why">
+    <div class="wrap">
+      <span class="eyebrow reveal">Ваше нечестное преимущество</span>
+      <h2 class="h2 reveal" data-delay="1">Почему со мной вы достигаете результата быстрее</h2>
+      <div class="why-grid">
+        <div class="glass why-card reveal" data-delay="1">
+          <div class="why-num">01</div>
+          <h3>Скорость</h3>
+          <p>Мы не тратим годы на разговоры. Мы фокусируемся на том, что дает максимальный эффект здесь и сейчас.</p>
+        </div>
+        <div class="glass why-card reveal" data-delay="2">
+          <div class="why-num">02</div>
+          <h3>Конфиденциальность</h3>
+          <p>Ваши секреты, страхи и планы остаются в этой комнате. Точка.</p>
+        </div>
+        <div class="glass why-card reveal" data-delay="3">
+          <div class="why-num">03</div>
+          <h3>Работа с состоянием</h3>
+          <p>Вы научитесь переключать свою энергию из минуса в плюс по щелчку пальцев.</p>
+        </div>
+        <div class="glass why-card reveal" data-delay="4">
+          <div class="why-num">04</div>
+          <h3>Партнерство, а не иерархия</h3>
+          <p>Я не «сверху». Я рядом с вами, как ваш стратег и союзник.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. TESTIMONIALS ============ -->
+  <section class="sec" id="reviews" style="background:#0a0a0b;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow reveal">Истории трансформации</span>
+        <h2 class="h2 reveal" data-delay="1">Они приняли решение. И изменили всё.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="glass testi-card reveal" data-delay="1">
+          <blockquote>«Я думала, что со мной что-то не так, и что это навсегда. Марк не стал успокаивать пустыми фразами. Он дал инструменты, чтобы я сама увидела, как создаю свою тревогу. Через 4 сессии я впервые за 5 лет начала спать по 8 часов. Я вернула себе свою жизнь».</blockquote>
+          <div class="testi-person">
+            <div class="testi-ava"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&fit=crop&crop=faces" alt="Анна" loading="lazy"></div>
+            <div class="testi-meta">
+              <strong>Анна, 32 года</strong>
+              <span class="t-req">Хроническая тревога и выгорание</span>
+            </div>
+          </div>
+        </div>
+        <div class="glass testi-card reveal" data-delay="2">
+          <blockquote>«Я боялся все бросить. Казалось, это безумие. Мы разобрали мои страхи по косточкам. Оказалось, это не страхи, а чужие установки. Сегодня я веду свой проект и чувствую прилив энергии, которого не было с 20 лет».</blockquote>
+          <div class="testi-person">
+            <div class="testi-ava"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&fit=crop&crop=faces" alt="Дмитрий" loading="lazy"></div>
+            <div class="testi-meta">
+              <strong>Дмитрий, 40 лет</strong>
+              <span class="t-req">Потеря смысла, тупик в карьере</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. FAQ ============ -->
+  <section class="sec sec-light" id="faq">
+    <div class="wrap">
+      <div class="sec-center">
+        <span class="eyebrow reveal">Часто спрашивают</span>
+        <h2 class="h2 reveal" data-delay="1">Всё, что вы хотели спросить, прежде чем начать</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item reveal" data-delay="1">
+          <button class="faq-q">А вдруг мне станет хуже, когда я начну в это погружаться? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Рост всегда сопровождается дискомфортом. Да, иногда будет непросто. Но мы делаем это в контролируемом, безопасном темпе. Я держу для вас пространство, где вы можете пройти через это и стать сильнее.</p></div>
+        </div>
+        <div class="faq-item reveal" data-delay="2">
+          <button class="faq-q">Я не знаю, чего хочу. Мне к психологу или к коучу? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Вам ко мне. На первой встрече мы проведем диагностику. Если нужно исцелить эмоциональную рану — используем психологию. Если нужно построить маршрут к цели — подключим коучинг. Мы возьмем лучшее из обоих миров.</p></div>
+        </div>
+        <div class="faq-item reveal" data-delay="3">
+          <button class="faq-q">Вы будете говорить мне, что делать? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Нет. Я не даю советов. Я задаю вам такие мощные вопросы и даю такие рамки, что вы сами находите гениальное решение, которое идеально подходит именно вам.</p></div>
+        </div>
+        <div class="faq-item reveal" data-delay="4">
+          <button class="faq-q">Работает ли онлайн-формат так же мощно, как очно? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Абсолютно. Энергия и фокус не зависят от географии. Тысячи моих клиентов получили прорыв именно через экран монитора, находясь в комфорте своего дома.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. FORM ============ -->
+  <section class="form-section" id="form" style="background:#0a0a0b;border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="glass form-card reveal">
+        <span class="eyebrow">Пора действовать</span>
+        <h2 class="h2">Через год вы пожалеете, что не начали сегодня.</h2>
+        <p class="lead">Хватит откладывать жизнь на потом. Оставьте заявку. Я свяжусь с вами в течение рабочего дня, и мы проведем 20-минутную Сессию Прорыва, чтобы определить ваш следующий шаг.</p>
+        <form class="form-grid" action="#" method="post">
+          <div class="field">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+          </div>
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label for="email">Почта</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="consent" required>
+            <span>Я готов взять ответственность за свою жизнь. Согласен на обработку персональных данных.</span>
+          </label>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-lg" style="width:100%">Забронировать Сессию Прорыва</button>
+          </div>
+          <p class="form-micro">Количество мест на бесплатные диагностические созвоны в этом месяце ограничено.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="cta-band sec-light">
+    <div class="wrap">
+      <h2 class="h1 reveal">Не ждите. Напишите мне прямо сейчас.</h2>
+      <p class="lead reveal" data-delay="1">Telegram <a href="https://t.me/username" style="color:var(--gold)">@username</a> · WhatsApp <a href="#" style="color:var(--gold)">+7 (000) 000-00-00</a> · <a href="mailto:hello@example.com" style="color:var(--gold)">hello@example.com</a></p>
+      <div class="reveal" data-delay="2">
+        <a href="#form" class="btn btn-lg">Сессия Прорыва — бесплатно</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-flex">
+      <div class="foot-brand">
+        <span class="logo-name">Марк Верхов</span>
+        <p>Психолог и стратегический коуч. Помогаю вернуть энергию, ясность и контроль над жизнью.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Разделы</h4>
+          <a href="#price">С чем работаю</a>
+          <a href="#plan">Метод</a>
+          <a href="#formats">Тарифы</a>
+          <a href="#faq">Вопросы</a>
+        </div>
+        <div class="foot-col">
+          <h4>Контакты</h4>
+          <a href="https://t.me/username">Telegram</a>
+          <a href="#">WhatsApp</a>
+          <a href="mailto:hello@example.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span>, Марк Верхов. Психолог. Стратегический коуч.</span>
+      <span>Дисклеймер: Работа с психологом и коучем — это мощный инструмент личностного роста, но она не заменяет медицинскую помощь и консультацию врача-психиатра.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  const scrollTop = document.getElementById('scrollTop');
+  const onScrollTop = () => scrollTop.classList.toggle('show', window.scrollY > 500);
+  window.addEventListener('scroll', onScrollTop, {passive:true}); onScrollTop();
+  scrollTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const menu = document.getElementById('mobileMenu');
+  document.getElementById('hamburger').addEventListener('click', () => menu.classList.add('open'));
+  document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  revealEls.forEach(el => io.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null; });
+      if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Отправка формы в Telegram через Google Apps Script
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz9zPgyjBfu6QxgEs2P342Ue7lTNDH2O97upxoXobCw0_1yHH7fPBQqK6N8wdSS1yRb/exec';
+  document.querySelector('.form-grid').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const submitBtn = form.querySelector('.form-submit .btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify({name, phone, email})
+      });
+      if (!res.ok) throw new Error('http');
+      form.innerHTML = '<p class="form-done">Спасибо! Заявка улетела.<br>Я свяжусь с вами в течение рабочего дня.</p>';
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Забронировать Сессию Прорыва';
+      alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите мне в Telegram.');
+    }
+  });
+
+  // Parallax on hero background
+  const heroBg = document.querySelector('.hero-bg img');
+  if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) heroBg.style.transform = `translateY(${y * 0.25}px)`;
+    }, {passive:true});
+  }
+</script>
+</body>
+</html>
