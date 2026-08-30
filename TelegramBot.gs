@@ -4,7 +4,7 @@
 const BOT_TOKEN = 'ВСТАВЬТЕ_ТОКЕН_БОТА_ОТ_BOTFATHER';
 const CHAT_ID = 'ВСТАВЬТЕ_CHAT_ID_КУДА_СЛАТЬ';
 const SITE_NAME = 'Сайт Марка Верхова';
-const SITE_URL = '...ваш_домен...';
+const SITE_URL = 'https://oamatveeva1.github.io/kouch-mark-verkhov/';
 
 function doPost(e) {
   try {
