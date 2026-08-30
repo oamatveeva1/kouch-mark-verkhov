@@ -130,8 +130,11 @@
   .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.15) 100%)}
   .hero-content{width:100%;position:relative;z-index:2;padding:180px 0 90px}
   .hero-content .wrap{max-width:1280px}
-  .hero .h1{max-width:12em;margin-bottom:30px}
-  .hero .hero-accent{display:block;color:var(--gold)}
+  .hero .h1{max-width:15em;margin-bottom:30px;font-weight:600;text-shadow:0 2px 40px rgba(0,0,0,.45)}
+  .hero .hero-accent{display:block;margin-top:.38em;text-shadow:none;filter:drop-shadow(0 6px 26px rgba(252,187,0,.28));background:linear-gradient(95deg,#ffcb2f 0%,#fcbb00 35%,#ffe9a0 50%,#fcbb00 65%,#ffcb2f 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:heroShine 7s linear infinite}
+  .hero-strike{position:relative;color:var(--gold);white-space:nowrap;text-shadow:none}
+  .hero-strike::before{content:"";position:absolute;left:-.04em;right:-.05em;top:57%;height:.09em;background:linear-gradient(90deg,#ffd75e,#ffb800,#ffd75e);transform:rotate(-2deg);border-radius:3px;box-shadow:0 0 14px rgba(252,187,0,.5)}
+  @keyframes heroShine{to{background-position:200% center}}
   .hero-sub{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:640px;margin-bottom:40px;font-weight:400}
   .hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
   .hero-micro{width:100%;font-size:16px;color:var(--ink-soft);line-height:1.55}
@@ -323,7 +326,7 @@
       <div class="wrap">
         <span class="eyebrow reveal">Психолог · Стратегический коуч</span>
         <h1 class="h1 reveal" data-delay="1">
-          Хватит жить на автопилоте.
+          Хватит жить на <span class="hero-strike">автопилоте</span>.
           <span class="hero-accent">Верните себе энергию, ясность и полный контроль.</span>
         </h1>
         <p class="hero-sub reveal" data-delay="2">Вы не сломаны — вам просто нужна другая стратегия. Я помогаю тем, кто устал от тревоги и выгорания, вернуть энергию и ясность. Без лишних слов, без бесконечных копаний в прошлом. Только простые инструменты, которые работают.</p>
